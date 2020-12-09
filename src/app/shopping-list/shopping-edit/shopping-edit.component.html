@@ -1,1 +1,32 @@
-<p>shopping-edit works!</p>
+<div class="shopping-edit-card">
+    <form>
+        <mat-form-field color="accent" class="ingredient-form-field name-form-field">
+            <mat-label>
+                Name
+            </mat-label>
+            <input matInput type="text" />
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="ingredient-form-field ammount-form-field">
+            <mat-label>
+                Ammount
+            </mat-label>
+            <input matInput type="number" />
+        </mat-form-field>
+
+        <div>
+            <button mat-mini-fab color="accent" type="submit" class="edit-fab-button" #tooltip="matTooltip"
+                matTooltip="Add ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button mat-mini-fab  type="button" color="accent" class="edit-fab-button" #tooltip="matTooltip"
+            matTooltip="Delete ingredient" [matTooltipPosition]="'above'" matTooltipHideDelay="2000">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-mini-fab  type="button" color="accent" class="edit-fab-button" #tooltip="matTooltip"
+            matTooltip="Clear ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </form>
+</div>

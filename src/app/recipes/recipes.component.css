@@ -1,0 +1,16 @@
+.recipe-column{
+    margin: 2%;
+    padding: 0;
+}
+.recipe-card-title{
+    background-color:#f8bbd0;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+.column-title{
+    color: #ff4081;
+    font-family: fantasy;
+}

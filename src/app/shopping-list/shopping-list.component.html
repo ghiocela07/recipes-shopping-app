@@ -1,1 +1,14 @@
-<p>shopping-list works!</p>
+<div fxLayout="row" fxFlex="100" class="shopping-list-container" fxLayoutAlign="space-around center">
+    <div fxLayout="column" fxFlex="100">
+        <mat-card class="shopping-card">
+            <mat-card-title class="shopping-card-title">Shopping List</mat-card-title>
+            <app-shopping-edit></app-shopping-edit>
+
+            <mat-selection-list class="ingredients-list" #ingredient [multiple]="false">
+                <mat-list-option *ngFor="let ingredient of ingredients" [value]="ingredient">
+                    {{ingredient.name}} ({{ingredient.ammount}})
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-card>
+    </div>
+</div>

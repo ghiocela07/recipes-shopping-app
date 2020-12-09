@@ -1,0 +1,17 @@
+.ingredient-form-field{
+    margin-right: 10px;
+}
+
+.name-form-field {
+    width: 200px;
+}
+.ammount-form-field{
+    width: 100px;
+}
+.edit-fab-button{
+    margin-right: 10px;
+}
+.shopping-edit-card{
+    width: fit-content;
+    margin-top: 20px;
+}

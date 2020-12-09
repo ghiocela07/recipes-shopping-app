@@ -1,1 +1,28 @@
-<p>header works!</p>
+<mat-toolbar class="app-toolbar" color="accent">
+    <span class="toolbar-title-app">Recipes Book</span>
+    <button mat-button>
+        <mat-icon>menu_book</mat-icon>
+        Recipes
+    </button>
+    <button mat-button>
+        <mat-icon>shopping_bag</mat-icon>
+        Shopping list
+    </button>
+    <div fxFlex fxLayoutAlign="flex-end center">
+        <button mat-button [matMenuTriggerFor]="manageMenu">
+            <mat-icon>settings</mat-icon>
+            Manage
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #manageMenu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>save_alt</mat-icon>
+                Save
+            </button>
+            <button mat-menu-item>
+                <mat-icon>cloud_download</mat-icon>
+                Fetch Data
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>

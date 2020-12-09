@@ -1,0 +1,10 @@
+.recipe-detail-card {
+    color:  #f8bbd0;
+    margin-top: 20px;
+}
+
+.recipe-detail-image {
+    margin: 10px auto;
+    width: 100%;
+    border-radius: 10px;
+}

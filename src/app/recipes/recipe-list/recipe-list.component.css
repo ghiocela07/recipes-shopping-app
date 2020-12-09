@@ -1,0 +1,20 @@
+.add-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe-list-container{
+    display: block;
+}
+
+.recipe-list-card{
+    margin-bottom: 20px;
+    background: #f8bbd0;
+    color: white;
+}
+
+.recipe-card-image{
+    margin: 10px auto;
+    width: 100%;
+    border-radius: 10px;
+}

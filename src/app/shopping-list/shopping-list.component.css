@@ -1,0 +1,18 @@
+.shopping-list-container{
+    margin: 50px;
+    
+}
+.shopping-card {
+    margin: 2%;
+    padding: 20px;
+    background: #fce4ec;
+    width: fit-content;
+}
+
+.shopping-card-title {
+    color: #ff4081;
+    font-family: fantasy;
+}
+.ingredients-list{
+    width: fit-content;
+}
