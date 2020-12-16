@@ -1,10 +1,10 @@
 <mat-toolbar class="app-toolbar" color="accent">
     <span class="toolbar-title-app">Recipes Book</span>
-    <button mat-button>
+    <button mat-button (click)="onSelect('recipe')">
         <mat-icon>menu_book</mat-icon>
         Recipes
     </button>
-    <button mat-button>
+    <button mat-button (click)="onSelect('shopping-list')">
         <mat-icon>shopping_bag</mat-icon>
         Shopping list
     </button>

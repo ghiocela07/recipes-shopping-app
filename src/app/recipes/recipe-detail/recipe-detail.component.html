@@ -1,10 +1,10 @@
 <mat-card class="recipe-detail-card">
 
     <mat-card-title>
-        Recipe Test
+        {{recipe?.name}}
     </mat-card-title>
     <img class="recipe-detail-image" mat-card-image alt=""
-        src="https://images-gmi-pmc.edge-generalmills.com/7eb09e32-fb06-4a34-97e6-def91b62164f.jpg">
+        [src]="recipe?.imagePath">
   
 
     <mat-card-actions>
@@ -13,7 +13,7 @@
         <button mat-button color="accent"><mat-icon>delete</mat-icon>Delete</button>
     </mat-card-actions>
     <mat-card-content class="recipe-card-content">
-        This is a description of this recipe-card-content
+        {{recipe?.description}}
        
         <div>
             <h2>Ingredients:</h2>

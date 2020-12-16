@@ -2,11 +2,11 @@
     <div fxLayout="column" fxFlex="100">
         <mat-card class="shopping-card">
             <mat-card-title class="shopping-card-title">Shopping List</mat-card-title>
-            <app-shopping-edit></app-shopping-edit>
+            <app-shopping-edit (ingredientAdded)="onIngredientAdded($event)"></app-shopping-edit>
 
             <mat-selection-list class="ingredients-list" #ingredient [multiple]="false">
                 <mat-list-option *ngFor="let ingredient of ingredients" [value]="ingredient">
-                    {{ingredient.name}} ({{ingredient.ammount}})
+                    {{ingredient.name}} ({{ingredient.amount}})
                 </mat-list-option>
             </mat-selection-list>
         </mat-card>

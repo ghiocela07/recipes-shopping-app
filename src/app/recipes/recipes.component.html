@@ -4,14 +4,19 @@
         <h1 class="mat-title column-title">Recipe List</h1>
 
         <mat-divider></mat-divider>
-            <app-recipe-list>
+            <app-recipe-list (recipeWasSelected)="selectedRecipe = $event">
         </app-recipe-list>
     </div>
 
 
     <div fxFlex="60" class="recipe-column">
         <h1 class="mat-title column-title">Recipe Detail</h1><mat-divider></mat-divider>
-        <app-recipe-detail></app-recipe-detail>
+        <app-recipe-detail *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-detail>
+        <ng-template #infoText>
+            <p>
+                Please select a Recipe!
+            </p>
+        </ng-template>
     </div>
 
 </div>

@@ -1,22 +1,7 @@
 <div class="recipe-list-container">
-
-    <div>
-        <button mat-raised-button class="add-button" color="accent">
-            <mat-icon>add</mat-icon>
-            Add new recipe
-        </button>
-    </div>
-
-    <div *ngFor="let recipe of recipes">
-        <mat-card class="recipe-list-card">
-            <mat-card-title>
-                {{ recipe.name}}
-            </mat-card-title>
-            <mat-card-content class="recipe-card-content">
-                <i>{{recipe.description}}</i>
-            </mat-card-content>
-            <img class="recipe-card-image" mat-card-image alt="{{recipe.name}}" [src]="recipe.imagePath">
-        </mat-card>
-    </div>
-    <app-recipe-item></app-recipe-item>
+    <button mat-raised-button class="add-button" color="accent">
+        <mat-icon>add</mat-icon>
+        Add new recipe
+    </button>
+    <app-recipe-item *ngFor="let recipeItem of recipes" [recipe]="recipeItem" (recipeSelected)="onRecipeSelected(recipeItem)"></app-recipe-item>
 </div>
