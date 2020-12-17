@@ -21,8 +21,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatListModule,
     MatInputModule,
     MatTooltipModule,
+    MatSelectModule,
     FlexLayoutModule,
     LayoutModule
   ],
