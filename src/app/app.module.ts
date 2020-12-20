@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DropdownDirective } from './shared/dropdown.directive';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     MatInputModule,
     MatTooltipModule,
     MatSelectModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     LayoutModule
   ],

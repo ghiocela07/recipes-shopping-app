@@ -4,3 +4,9 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.success-snack-bar {
+    background-color: #81c784;
+    color: white;
+}
+

@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RecipeService } from 'src/app/services/recipe.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
+
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -8,10 +12,15 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  @Input() recipe: Recipe | undefined;
-  constructor() { }
+  @Input() recipe: Recipe = new Recipe('', '', '', []);
+  constructor(private recipeService: RecipeService, private snackBarService: SnackBarService) { }
 
   ngOnInit(): void {
   }
 
+  onAddToShopiingList() {
+    this.recipeService.addIngredientsToShoppingList(this.recipe?.ingredients);
+    this.snackBarService.openSuccessSnackBar('Ingredients addedd successfully', 'Ok');
+
+  }
 }
