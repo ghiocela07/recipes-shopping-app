@@ -1,9 +1,11 @@
-<mat-card class="recipe-item-card mat-elevation-z4" (click)="onSelected()">
-    <mat-card-title>
-        {{ recipe?.name}}
-    </mat-card-title>
-    <mat-card-content class="recipe-card-content">
-        <i>{{recipe?.description}}</i>
-    </mat-card-content>
-    <img class="recipe-card-image" mat-card-image alt="{{recipe?.name}}" [src]="recipe?.imagePath">
-</mat-card>
+<a class="remove-style"  [routerLink]="[recipeId]" routerLinkActive="active-item">
+    <mat-card class="recipe-item-card mat-elevation-z4" [ngClass]="{'active-card': isRouteActive()}">
+        <mat-card-title>
+            {{ recipe?.name}}
+        </mat-card-title>
+        <mat-card-content class="recipe-card-content">
+            <i>{{recipe?.description}}</i>
+        </mat-card-content>
+        <img class="recipe-card-image" mat-card-image alt="{{recipe?.name}}" [src]="recipe?.imagePath">
+    </mat-card>
+</a>

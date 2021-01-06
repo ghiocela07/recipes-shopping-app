@@ -13,6 +13,7 @@ export class RecipeService {
 
     private recipes: Recipe[] = [
         new Recipe(
+            1,
             'Tasty Schnitzel',
             'A super-tasty Schnitzel - just awesome!',
             'https://previews.123rf.com/images/voltan1/voltan11802/voltan1180200102/95164532-tasty-schnitzel-with-cucumber-salad-on-white-plate-close-up-view.jpg',
@@ -21,6 +22,7 @@ export class RecipeService {
                 new Ingredient('French Fries', 20)
             ]),
         new Recipe(
+            2,
             'Big Fat Burger',
             'What else you need to say?',
             'https://i.insider.com/5a85feb142e1cc26ea3e9afb?width=600&format=jpeg&auto=webp',
@@ -36,7 +38,15 @@ export class RecipeService {
         return this.recipes.slice();
     }
 
-    addIngredientsToShoppingList(ingredients: Ingredient[]) {
-        this.shoppingListService.addIngredients(ingredients);
+    getRecipe(id: number) {
+        return this.recipes.find(
+            (r: Recipe) => r.id === id
+        );
+    }
+
+    addIngredientsToShoppingList(ingredients: Ingredient[] | undefined) {
+        if (ingredients) {
+            this.shoppingListService.addIngredients(ingredients);
+        }
     }
 }

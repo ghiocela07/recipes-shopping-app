@@ -11,12 +11,7 @@
 
     <div fxFlex="60" class="recipe-column">
         <h1 class="mat-title column-title">Recipe Detail</h1><mat-divider></mat-divider>
-        <app-recipe-detail *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-detail>
-        <ng-template #infoText>
-            <p>
-                Please select a Recipe!
-            </p>
-        </ng-template>
+       <router-outlet></router-outlet>
     </div>
 
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() featureSelected = new EventEmitter<string>();
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSelect(feature: string): void{
-    this.featureSelected.emit(feature);
+  onSelect(feature: string): void {
+    this.router.navigate(['/' + feature]);
   }
 
 }

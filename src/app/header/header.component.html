@@ -1,13 +1,25 @@
 <mat-toolbar class="app-toolbar" color="accent">
     <span class="toolbar-title-app">Recipes Book</span>
-    <button mat-button (click)="onSelect('recipe')">
-        <mat-icon>menu_book</mat-icon>
-        Recipes
-    </button>
-    <button mat-button (click)="onSelect('shopping-list')">
+    <mat-nav-list class="nav-list">
+        <a mat-list-item class="nav-link-item" routerLink="/recipes" routerLinkActive="active-link-item">
+
+            <mat-icon>menu_book</mat-icon>
+            Recipes
+
+        </a>
+
+        <a mat-list-item class="nav-link-item" routerLink="/shopping-list" routerLinkActive="active-link-item">
+
+            <mat-icon>shopping_bag</mat-icon>
+            Shopping List
+
+        </a>
+    </mat-nav-list>
+
+    <!-- <button mat-button (click)="onSelect('shopping-list')">
         <mat-icon>shopping_bag</mat-icon>
         Shopping list
-    </button>
+    </button> -->
     <div fxFlex fxLayoutAlign="flex-end center">
         <button mat-button [matMenuTriggerFor]="manageMenu">
             <mat-icon>settings</mat-icon>

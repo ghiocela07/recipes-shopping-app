@@ -1,7 +1,7 @@
 <div class="recipe-list-container">
-    <button mat-raised-button class="add-button" color="accent">
+    <button mat-raised-button class="add-button" color="accent" (click)="onNewRecipe()">
         <mat-icon>add</mat-icon>
         Add new recipe
     </button>
-    <app-recipe-item *ngFor="let recipeItem of recipes" [recipe]="recipeItem" ></app-recipe-item>
+    <app-recipe-item *ngFor="let recipeItem of recipes"  [recipeId]="recipeItem.id" ></app-recipe-item>
 </div>
