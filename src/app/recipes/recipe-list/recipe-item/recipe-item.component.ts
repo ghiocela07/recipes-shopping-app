@@ -19,10 +19,6 @@ export class RecipeItemComponent implements OnInit {
     this.recipe = this.recipeService.getRecipe(this.recipeId);
   }
 
-  onSelected(): void {
-    this.recipeService.recipeSelected.emit(this.recipe);
-  }
-
   isRouteActive() {
     return this.router.isActive('/recipes/' + this.recipeId, false);
   }
