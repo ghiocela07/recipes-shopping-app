@@ -20,4 +20,35 @@
 
 .ingredients-label {
     color: #f8bbd0;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 10px;
+}
+.ingredients-list {
+    margin-top: 20px;
+}
+.mat-chip {
+    background-color: #f8bbd0;
+    color: white;
+    box-shadow: none !important;
+    transition: none !important;
+}
+.mat-chip.mat-standard-chip::after {
+    background: inherit;
+    color: white;
+    box-shadow: none !important;
+    transition: none !important;
+}
+.mat-chip.mat-standard-chip:hover {
+    color: white;
+
+}
+.mat-chip.mat-standard-chip:focus {
+    color: rgba(255, 255, 255, 1);
+
+}
+
+
+.info-message{
+    margin-top: 25px;
 }

@@ -9,6 +9,7 @@ import { ShoppingListService } from "./shopping-list.service";
 })
 export class RecipeService {
 
+    recipesChanged = new Subject<Recipe[]>();
     constructor(private shoppingListService: ShoppingListService) { }
 
     private recipes: Recipe[] = [
@@ -33,6 +34,10 @@ export class RecipeService {
             ])
     ];
 
+    getNewRecipe() {
+        return new Recipe(0, '', '', '', []);
+    }
+
     getRecipes() {
         // slice return a copy of the full array -> to not access the original array from outside ; get a copy
         return this.recipes.slice();
@@ -42,6 +47,23 @@ export class RecipeService {
         return this.recipes.find(
             (r: Recipe) => r.id === id
         );
+    }
+
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+    }
+
+    updateRecipe(id: number, newRecipe: Recipe) {
+        const updatedRecipeIndex = this.recipes.findIndex((recipe) => recipe.id === id);
+        this.recipes[updatedRecipeIndex] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice());
+    }
+
+    deleteRecipe(id: number | undefined) {
+        const deletedRecipeIndex = this.recipes.findIndex((recipe) => recipe.id === id);
+        this.recipes.splice(deletedRecipeIndex, 1);
+        this.recipesChanged.next(this.recipes.slice());
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[] | undefined) {

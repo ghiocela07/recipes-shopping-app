@@ -1,30 +1,38 @@
 <div class="shopping-edit-card">
-    <form>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <mat-form-field color="accent" class="ingredient-form-field name-form-field">
             <mat-label>
                 Name
             </mat-label>
-            <input matInput type="text" #nameInput />
+            <input matInput type="text" name="name" ngModel required />
         </mat-form-field>
 
         <mat-form-field color="accent" class="ingredient-form-field amount-form-field">
             <mat-label>
                 Amount
             </mat-label>
-            <input matInput type="number" #amountInput />
+            <input matInput type="number" name="amount" ngModel required pattern="^[1-9]+[0-9]*$" />
         </mat-form-field>
 
         <div>
-            <button mat-mini-fab color="accent" type="button" class="edit-fab-button" (click)="onAddItem()" #tooltip="matTooltip"
-                matTooltip="Add ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000">
+            <button *ngIf="!editMode" mat-mini-fab color="accent" type="submit" class="edit-fab-button"
+                #tooltip="matTooltip" matTooltip="Add ingredient" [matTooltipPosition]="'below'"
+                matTooltipHideDelay="2000" [disabled]="!f.valid">
                 <mat-icon>add</mat-icon>
             </button>
-            <button mat-mini-fab  type="button" color="accent" class="edit-fab-button" #tooltip="matTooltip"
-            matTooltip="Delete ingredient" [matTooltipPosition]="'above'" matTooltipHideDelay="2000">
+            <button *ngIf="editMode" mat-mini-fab color="accent" type="submit" class="edit-fab-button"
+                #tooltip="matTooltip" matTooltip="Edit ingredient" [matTooltipPosition]="'below'"
+                matTooltipHideDelay="2000" [disabled]="!f.valid">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab type="button" color="accent" class="edit-fab-button" #tooltip="matTooltip"
+                matTooltip="Delete ingredient" [matTooltipPosition]="'above'" matTooltipHideDelay="2000"
+                (click)="onDelete()" [disabled]="!editMode">
                 <mat-icon>delete</mat-icon>
             </button>
-            <button mat-mini-fab  type="button" color="accent" class="edit-fab-button" #tooltip="matTooltip"
-            matTooltip="Clear ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000">
+            <button mat-mini-fab type="button" color="accent" class="edit-fab-button" #tooltip="matTooltip"
+                matTooltip="Clear ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000"
+                (click)="onClear()">
                 <mat-icon>clear</mat-icon>
             </button>
         </div>

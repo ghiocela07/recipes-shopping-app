@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
@@ -9,11 +9,13 @@ import { Recipe } from '../recipe.model';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  styleUrls: ['./recipe-detail.component.css'],
+  encapsulation: ViewEncapsulation.Emulated 
 })
 export class RecipeDetailComponent implements OnInit {
 
   recipe: Recipe | undefined
+  id: number | undefined;
   constructor(private recipeService: RecipeService,
     private snackBarService: SnackBarService,
     private route: ActivatedRoute,
@@ -23,6 +25,7 @@ export class RecipeDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.recipe = this.recipeService.getRecipe(+params['id']);
+        this.id = +params['id'];
       }
     )
   }
@@ -36,5 +39,11 @@ export class RecipeDetailComponent implements OnInit {
   onEditRecipe() {
     this.router.navigate(['edit'], { relativeTo: this.route });
     // this.router.navigate(['../', this.recipe?.id, 'edit'], { relativeTo: this.route });
+  }
+
+  onDeleteRecipe(){
+    this.recipeService.deleteRecipe(this.id);
+    this.snackBarService.openSuccessSnackBar('Recipe deleted succeffully', 'Ok');
+    this.router.navigate(['/recipes']);
   }
 }

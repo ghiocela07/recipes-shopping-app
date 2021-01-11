@@ -1,4 +1,6 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
@@ -8,22 +10,60 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent implements OnInit {
+export class ShoppingEditComponent implements OnInit, OnDestroy {
 
-  @ViewChild('nameInput') nameInputRef: ElementRef | undefined;
-  @ViewChild('amountInput') amountInputRef: ElementRef | undefined;
+  @ViewChild('f') form: NgForm | undefined;
+  selectedIngredientSubscription: Subscription | undefined;
+  editMode = false;
+  selectedItemIndex: number = 0;
+  editedItem: Ingredient | undefined;
 
   constructor(private shoppingListService: ShoppingListService, private snackBarService: SnackBarService) { }
 
   ngOnInit(): void {
+    this.selectedIngredientSubscription = this.shoppingListService.selectedIngredient
+      .subscribe((index: number) => {
+        this.editMode = true;
+        this.selectedItemIndex = index;
+        this.editedItem = this.shoppingListService.getIngredient(index);
+        this.form?.setValue({
+          name: this.editedItem.name,
+          amount: this.editedItem.amount
+        });
+      });
   }
 
-  onAddItem(): void {
-    const ingredientName = this.nameInputRef?.nativeElement.value;
-    const ingredientAmount = this.amountInputRef?.nativeElement.value;
-    const newIngredient = new Ingredient(ingredientName, ingredientAmount);
-    this.shoppingListService.addIngredient(newIngredient);
-    this.snackBarService.openSuccessSnackBar('Ingredient added succesfully!', 'Ok')
+  ngOnDestroy() {
+    this.selectedIngredientSubscription?.unsubscribe();
+  }
+
+  onSubmit(form: NgForm): void {
+    const formData = form.value;
+    const newIngredient = new Ingredient(formData.name, formData.amount);
+    if (this.editMode) {
+      this.shoppingListService.updateIngredient(this.selectedItemIndex, newIngredient);
+      this.snackBarService.openSuccessSnackBar('Ingredient edited succesfully!', 'Ok')
+    } else {
+      this.shoppingListService.addIngredient(newIngredient);
+      this.snackBarService.openSuccessSnackBar('Ingredient added succesfully!', 'Ok')
+    }
+    this.editMode = false;
+    form.reset();
+  }
+
+  onClear() {
+    this.clearForm();
+  }
+
+  onDelete() {
+    this.shoppingListService.deleteIngredient(this.selectedItemIndex);
+    this.snackBarService.openSuccessSnackBar('Ingredient deleted succesfully!', 'Ok')
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.form?.reset();
+    this.editMode = false;
   }
 
 }

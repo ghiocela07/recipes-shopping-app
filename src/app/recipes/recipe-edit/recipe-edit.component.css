@@ -1,0 +1,41 @@
+.recipe-form {
+    display: grid;
+    padding: 20px;
+}
+.recipe-form-field{
+    margin-bottom: 10px;
+}
+.recipe-button {
+    width: 100px;
+    margin-right: 20px;
+}
+.ingredient-form-field {
+    margin-right: 10px;
+}
+.amount-form-field {
+    width: 100px;
+}
+.recipe-card {
+    margin-top: 20px;
+}
+.add-ingredient-button {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: fit-content;
+}
+.buttons-div {
+    margin-top: 20px;
+}
+.ingredients-list {
+    height: 200px;
+    overflow-y: auto;
+}
+.ingredient-group{
+    margin-bottom: 10px;
+}
+.recipe-edit-image{
+    margin: 0;
+    width: auto;
+    height: 300px;
+
+}
