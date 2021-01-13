@@ -27,11 +27,11 @@
             <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #manageMenu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onSaveData()">
                 <mat-icon>save_alt</mat-icon>
                 Save
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onFetchData()">
                 <mat-icon>cloud_download</mat-icon>
                 Fetch Data
             </button>
