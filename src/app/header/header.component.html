@@ -1,6 +1,6 @@
 <mat-toolbar class="app-toolbar" color="accent">
     <span class="toolbar-title-app">Recipes Book</span>
-    <mat-nav-list class="nav-list">
+    <mat-nav-list class="nav-list" *ngIf="isAuthenticated">
         <a mat-list-item class="nav-link-item" routerLink="/recipes" routerLinkActive="active-link-item">
 
             <mat-icon>menu_book</mat-icon>
@@ -21,20 +21,31 @@
         Shopping list
     </button> -->
     <div fxFlex fxLayoutAlign="flex-end center">
-        <button mat-button [matMenuTriggerFor]="manageMenu">
-            <mat-icon>settings</mat-icon>
-            Manage
-            <mat-icon>arrow_drop_down</mat-icon>
+        <div *ngIf="isAuthenticated">
+            <button mat-button [matMenuTriggerFor]="manageMenu">
+                <mat-icon>settings</mat-icon>
+                Manage
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #manageMenu="matMenu">
+                <button mat-menu-item (click)="onSaveData()">
+                    <mat-icon>save_alt</mat-icon>
+                    Save
+                </button>
+                <button mat-menu-item (click)="onFetchData()">
+                    <mat-icon>cloud_download</mat-icon>
+                    Fetch Data
+                </button>
+            </mat-menu>
+        </div>
+        <button mat-button (click)="onNavigateToAuth()" *ngIf="!isAuthenticated">
+            <mat-icon>person</mat-icon>
+            Authenticate
         </button>
-        <mat-menu #manageMenu="matMenu">
-            <button mat-menu-item (click)="onSaveData()">
-                <mat-icon>save_alt</mat-icon>
-                Save
-            </button>
-            <button mat-menu-item (click)="onFetchData()">
-                <mat-icon>cloud_download</mat-icon>
-                Fetch Data
-            </button>
-        </mat-menu>
+        <button mat-button (click)="onLogout()" *ngIf="isAuthenticated">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
     </div>
+
 </mat-toolbar>

@@ -3,7 +3,7 @@
         <mat-card class="shopping-card mat-elevation-z4">
             <mat-card-title class="shopping-card-title">Shopping List</mat-card-title>
             <app-shopping-edit></app-shopping-edit>
-
+            <mat-divider [inset]="true" class="app-divider"></mat-divider>
             <mat-selection-list class="ingredients-list" #ingredient [multiple]="false">
                 <mat-list-option *ngFor="let ingredient of ingredients; let i = index" [value]="ingredient"
                     (click)="onEditItem(i)">

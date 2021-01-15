@@ -9,4 +9,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #81c784;
     color: #ffebee;
 }
-
+.mat-card-header-text {
+    margin: 0 auto! important;
+}
+.app-divider{
+    margin: 20px 0 !important;
+}
