@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 export class AuthInterceptorService implements HttpInterceptor {
 
     constructor(private authService: AuthService) { }
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return this.authService.userSubject
             .pipe(
@@ -20,6 +21,7 @@ export class AuthInterceptorService implements HttpInterceptor {
                             params: new HttpParams().set('auth', token)
                         }
                     );
+
                     return next.handle(modifiedRequest);
                 }));
 

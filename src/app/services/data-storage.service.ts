@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
     apiUrl = 'https://my-first-app-a35ea-default-rtdb.firebaseio.com/';
+
     constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) { }
 
     storeRecipes(): void {
@@ -17,6 +18,7 @@ export class DataStorageService {
             response => console.log(response)
         );
     }
+
     fetchRecipes(): Observable<Recipe[]> {
         return this.authService.userSubject.pipe(take(1), exhaustMap(userSubject => {
             return this.http.get<Recipe[]>(this.apiUrl + 'recipes.json')

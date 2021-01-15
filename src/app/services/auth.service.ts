@@ -22,9 +22,12 @@ export class AuthService {
     userSubject = new BehaviorSubject<User | undefined>(undefined);
     token: string | undefined;
     private tokenExpirationTimer: any;
+
     constructor(private http: HttpClient, private router: Router) { }
+
     singUp(email: string, password: string): Observable<AuthResponseData> {
         const singUpUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBDINuQ3NwJQxnAM54ZWrH-LfSlsw8rSCU';
+
         return this.http.post<AuthResponseData>(singUpUrl, {
             email,
             password,
@@ -37,6 +40,7 @@ export class AuthService {
         );
 
     }
+
     autoLogin(): void {
         const userData = localStorage.getItem('userData');
         if (!userData) {
@@ -57,9 +61,11 @@ export class AuthService {
             this.autoLogout(expDuration);
         }
     }
+
     login(email: string, password: string): Observable<AuthResponseData> {
         const loginUrl =
             'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBDINuQ3NwJQxnAM54ZWrH-LfSlsw8rSCU';
+
         return this.http.post<AuthResponseData>(loginUrl, {
             email,
             password,
@@ -70,6 +76,7 @@ export class AuthService {
                 this.handleAuth(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn);
             }));
     }
+
     logout(): void {
         this.userSubject.next(undefined);
         this.router.navigate(['/auth']);
@@ -110,6 +117,7 @@ export class AuthService {
                 errorMessage = 'The password is invalid.';
                 break;
         }
+
         return throwError(errorMessage);
     }
 }

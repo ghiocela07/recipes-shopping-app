@@ -10,6 +10,7 @@ import { ShoppingListService } from './shopping-list.service';
 export class RecipeService {
 
     recipesChanged = new Subject<Recipe[]>();
+
     constructor(private shoppingListService: ShoppingListService) { }
 
     // private recipes: Recipe[] = [

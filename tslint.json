@@ -1,7 +1,8 @@
 {
-  "extends": "tslint:recommended",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rulesDirectory": [
-    "codelyzer"
+    "codelyzer",
+    "node_modules/tslint-lines-between-class-members"
   ],
   "rules": {
     "align": {
@@ -10,6 +11,9 @@
         "statements"
       ]
     },
+    "no-trailing-whitespace": true,
+    "newline-before-return": true,
+    "lines-between-class-members": true,
     "array-type": false,
     "arrow-return-shorthand": true,
     "curly": true,

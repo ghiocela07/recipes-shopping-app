@@ -1,10 +1,8 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { DataStorageService } from '../services/data-storage.service';
-import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   authSubscription: Subscription | undefined;
   userEmail: string | undefined;
   isAuthenticated = false;
+
   constructor(private router: Router, private dataStorageService: DataStorageService, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -24,6 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.userEmail = !user ? undefined : user.email;
     });
   }
+
   ngOnDestroy(): void {
     this.authSubscription?.unsubscribe();
   }
@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onNavigateToAuth(): void {
     this.router.navigate(['/auth']);
   }
+
   onLogout(): void {
     this.authService.logout();
   }
