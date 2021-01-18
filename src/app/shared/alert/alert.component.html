@@ -1,0 +1,14 @@
+<h1 mat-dialog-title class="dialog-title">
+    <mat-icon class="error-icon">error</mat-icon>Error
+</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <mat-error class="error">
+
+        <p>{{data.message}}</p>
+    </mat-error>
+
+</div>
+<div mat-dialog-actions class="dialog-buttons">
+    <button mat-button color="warn" mat-dialog-close>Close</button>
+</div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from '../services/auth.service';
+import { AlertComponent } from '../shared/alert/alert.component';
 
 @Component({
   selector: 'app-auth',
@@ -15,7 +17,7 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string | undefined;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -48,8 +50,22 @@ export class AuthComponent implements OnInit {
       errorMessage => {
         this.error = errorMessage;
         this.isLoading = false;
+        this.openAlertBox(errorMessage);
       }
     );
     form.reset();
+  }
+
+  private openAlertBox(messageToShow: string): void {
+
+    const dialogRef = this.matDialog.open(AlertComponent, {
+      width: '400px',
+      data: { message: messageToShow }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+
   }
 }
