@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { RecipeService } from 'src/app/services/recipe.service';
-import { Recipe } from '../recipe.model';
+import { RecipeService } from 'src/app/core/services/recipe.service';
+import { Recipe } from '../../core/models/recipe.model';
 
 @Component({
   selector: 'app-recipe-list',

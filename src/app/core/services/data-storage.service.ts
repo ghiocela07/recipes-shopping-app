@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Recipe } from '../recipes/recipe.model';
+import { Recipe } from '../models/recipe.model';
 import { RecipeService } from './recipe.service';
 import { exhaustMap, map, take, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';

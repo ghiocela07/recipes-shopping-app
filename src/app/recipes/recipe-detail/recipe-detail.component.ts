@@ -1,10 +1,10 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { RecipeService } from 'src/app/services/recipe.service';
-import { SnackBarService } from 'src/app/services/snack-bar.service';
+import { RecipeService } from 'src/app/core/services/recipe.service';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 
-import { Recipe } from '../recipe.model';
+import { Recipe } from '../../core/models/recipe.model';
 
 @Component({
   selector: 'app-recipe-detail',

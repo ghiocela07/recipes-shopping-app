@@ -1,9 +1,9 @@
 import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ShoppingListService } from 'src/app/services/shopping-list.service';
-import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { Ingredient } from 'src/app/shared/ingredient.model';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
+import { ShoppingListService } from 'src/app/core/services/shopping-list.service';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -15,7 +15,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') form: NgForm | undefined;
   selectedIngredientSubscription: Subscription | undefined;
   editMode = false;
-  selectedItemIndex: number = 0;
+  selectedItemIndex = 0;
   editedItem: Ingredient | undefined;
 
   constructor(private shoppingListService: ShoppingListService, private snackBarService: SnackBarService) { }
@@ -33,7 +33,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.selectedIngredientSubscription?.unsubscribe();
   }
 
@@ -42,26 +42,26 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     const newIngredient = new Ingredient(formData.name, formData.amount);
     if (this.editMode) {
       this.shoppingListService.updateIngredient(this.selectedItemIndex, newIngredient);
-      this.snackBarService.openSuccessSnackBar('Ingredient edited succesfully!', 'Ok')
+      this.snackBarService.openSuccessSnackBar('Ingredient edited succesfully!', 'Ok');
     } else {
       this.shoppingListService.addIngredient(newIngredient);
-      this.snackBarService.openSuccessSnackBar('Ingredient added succesfully!', 'Ok')
+      this.snackBarService.openSuccessSnackBar('Ingredient added succesfully!', 'Ok');
     }
     this.editMode = false;
     form.reset();
   }
 
-  onClear() {
+  onClear(): void {
     this.clearForm();
   }
 
-  onDelete() {
+  onDelete(): void {
     this.shoppingListService.deleteIngredient(this.selectedItemIndex);
-    this.snackBarService.openSuccessSnackBar('Ingredient deleted succesfully!', 'Ok')
+    this.snackBarService.openSuccessSnackBar('Ingredient deleted succesfully!', 'Ok');
     this.clearForm();
   }
 
-  clearForm() {
+  clearForm(): void {
     this.form?.reset();
     this.editMode = false;
   }

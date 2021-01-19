@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
-import { Ingredient } from "../shared/ingredient.model";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Ingredient } from '../models/ingredient.model';
 
 @Injectable({
     providedIn: 'root',
@@ -14,19 +14,20 @@ export class ShoppingListService {
         new Ingredient('Cucumbers', 8),
     ];
 
-    getIngredients() {
+    getIngredients(): Ingredient[] {
         return this.ingredients.slice();
     }
 
-    getIngredient(index: number) {
+    getIngredient(index: number): Ingredient {
         return this.ingredients[index];
     }
 
-    addIngredient(ingredient: Ingredient) {
+    addIngredient(ingredient: Ingredient): void {
         this.ingredients.push(ingredient);
         this.ingredientsChanged.next(this.ingredients.slice());
     }
-    addIngredients(ingredients: Ingredient[]) {
+
+    addIngredients(ingredients: Ingredient[]): void {
         // ingredients.forEach(ingredient => {
         //     this.addIngredient(ingredient);
         // });
@@ -34,12 +35,12 @@ export class ShoppingListService {
         this.ingredientsChanged.next(this.ingredients.slice());
     }
 
-    updateIngredient(index: number, newIngredient: Ingredient) {
+    updateIngredient(index: number, newIngredient: Ingredient): void {
         this.ingredients[index] = newIngredient;
         this.ingredientsChanged.next(this.ingredients.slice());
     }
 
-    deleteIngredient(index: number){
+    deleteIngredient(index: number): void {
         this.ingredients.splice(index, 1);
         this.ingredientsChanged.next(this.ingredients.slice());
     }

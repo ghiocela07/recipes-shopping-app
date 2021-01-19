@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { RecipeService } from 'src/app/services/recipe.service';
-import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { Recipe } from '../recipe.model';
+import { RecipeService } from 'src/app/core/services/recipe.service';
+import { SnackBarService } from 'src/app/core/services/snack-bar.service';
+import { Recipe } from '../../core/models/recipe.model';
 import { RecipesComponent } from '../recipes.component';
 
 @Component({

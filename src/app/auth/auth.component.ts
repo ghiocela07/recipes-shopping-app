@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthResponseData, AuthService } from '../services/auth.service';
+import { AuthResponseData, AuthService } from '../core/services/auth.service';
 import { AlertComponent } from '../shared/alert/alert.component';
 
 @Component({

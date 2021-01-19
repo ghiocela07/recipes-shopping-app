@@ -1,8 +1,9 @@
-import { Ingredient } from "../shared/ingredient.model";
+import { Ingredient } from 'src/app/core/models/ingredient.model';
+
 
 export class Recipe {
-    //TODO: add id
-    public id: number
+
+    public id: number;
     public name: string;
     public description: string;
     public imagePath: string;
