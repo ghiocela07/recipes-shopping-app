@@ -52,16 +52,15 @@
 <mat-sidenav-container fxFlexFill class="example-container">
     <mat-sidenav #sidenav fxLayout="column" fxHide.gt-sm="true">
         <div fxLayout="column">
-            <a mat-list-item class="sidenav-link-item" routerLink="/recipes" routerLinkActive="sidenav-active-link-item">
+            <a mat-list-item class="sidenav-link-item" routerLink="/recipes" routerLinkActive="sidenav-active-link-item" (click)="sidenav.toggle()">
                 Recipes
             </a>
-            <a mat-list-item class="sidenav-link-item" routerLink="/shopping-list" routerLinkActive="sidenav-active-link-item">
-                Shopping List
+            <a mat-list-item class=" sidenav-link-item " routerLink="/shopping-list " routerLinkActive="sidenav-active-link-item " (click)="sidenav.toggle()"> Shopping List
             </a>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div style="height: 88vh;">
+        <div style=" height: 88vh; ">
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
