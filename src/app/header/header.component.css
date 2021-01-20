@@ -1,9 +1,9 @@
-.toolbar-links{
+.toolbar-links {
     margin-right: 20px;
     color: #ffebee;
 }
 
-.toolbar-title-app{
+.toolbar-title-app {
     margin-right: 20px;
     font-family: fantasy;
 }
@@ -12,16 +12,30 @@
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    z-index: 1000; 
+    z-index: 1000;
 }
-.nav-list{
+
+.nav-list {
     display: flex;
     align-self: normal;
 }
 
-.nav-link-item{
+.nav-link-item {
     color: #ffebee;
 }
-.active-link-item{
-   color: #f48fb1;
+
+.active-link-item {
+    color: #f48fb1;
+}
+
+.sidenav-link-item {
+    color: #f48fb1;
+    margin: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sidenav-active-link-item {
+    color: #ff4081;
+    text-decoration: none;
 }
