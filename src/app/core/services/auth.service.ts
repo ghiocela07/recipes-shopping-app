@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
+
 
 
 
@@ -26,7 +28,7 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) { }
 
     singUp(email: string, password: string): Observable<AuthResponseData> {
-        const singUpUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBDINuQ3NwJQxnAM54ZWrH-LfSlsw8rSCU';
+        const singUpUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseApiKey;
 
         return this.http.post<AuthResponseData>(singUpUrl, {
             email,
@@ -64,7 +66,7 @@ export class AuthService {
 
     login(email: string, password: string): Observable<AuthResponseData> {
         const loginUrl =
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBDINuQ3NwJQxnAM54ZWrH-LfSlsw8rSCU';
+            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +  environment.firebaseApiKey;
 
         return this.http.post<AuthResponseData>(loginUrl, {
             email,

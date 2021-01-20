@@ -10,24 +10,25 @@ import { Recipe } from '../../core/models/recipe.model';
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css'],
-  encapsulation: ViewEncapsulation.Emulated 
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class RecipeDetailComponent implements OnInit {
 
-  recipe: Recipe | undefined
+  recipe: Recipe | undefined;
   id: number | undefined;
+
   constructor(private recipeService: RecipeService,
-    private snackBarService: SnackBarService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+              private snackBarService: SnackBarService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.recipe = this.recipeService.getRecipe(+params['id']);
-        this.id = +params['id'];
+        this.recipe = this.recipeService.getRecipe(+params.id);
+        this.id = +params.id;
       }
-    )
+    );
   }
 
   onAddToShopiingList() {

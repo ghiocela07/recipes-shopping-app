@@ -11,7 +11,7 @@ import { Recipe } from '../../../core/models/recipe.model';
 export class RecipeItemComponent implements OnInit {
 
   recipe: Recipe | undefined;
-  @Input() recipeId: number = -1;
+  @Input() recipeId = -1;
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 

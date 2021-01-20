@@ -11,6 +11,7 @@
         "statements"
       ]
     },
+    "no-unused-imports": true,
     "no-trailing-whitespace": true,
     "newline-before-return": true,
     "lines-between-class-members": true,

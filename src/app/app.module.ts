@@ -9,11 +9,8 @@ import { HeaderComponent } from './header/header.component';
 
 import { CoreModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthComponent } from './auth/auth.component';
-import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
+
 
 @NgModule({
   declarations: [
@@ -27,11 +24,8 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RecipesModule,
-    ShoppingListModule,
     SharedModule,
     CoreModule,
-    AuthModule
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
