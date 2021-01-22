@@ -23,7 +23,7 @@ export class DataStorageService {
         return this.authService.userSubject.pipe(take(1), exhaustMap(userSubject => {
             return this.http.get<Recipe[]>(this.apiUrl + 'recipes.json')
                 .pipe(map(recipes => {
-                    return recipes.map(recipe => {
+                    return recipes?.map(recipe => {
                         return {
                             ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []
                         };

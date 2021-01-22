@@ -37,6 +37,7 @@
 .sidenav-active-link-item {
     color: #ff4081;
     text-decoration: none;
+    margin: 20px;
 }
 
 .nav-menu-button {
