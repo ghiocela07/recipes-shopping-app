@@ -19,14 +19,14 @@
     </mat-card-actions>
     <mat-card-content class="recipe-card-content">
 
-       <div class="recipe-description">{{recipe?.description}}</div>
+        <div class="recipe-description">{{recipe?.description}}</div>
         <mat-divider [inset]="true"></mat-divider>
         <div class="ingredients-list" *ngIf="recipe?.ingredients">
             <div class="ingredients-label">Ingredients:</div>
             <mat-chip-list>
-                
-                <mat-chip  disableRipple *ngFor="let ingredient of recipe?.ingredients" [selectable]="false" [selected]="false" > {{ingredient.name}}
-                    ({{ingredient.amount}})</mat-chip>
+
+                <mat-chip disableRipple *ngFor="let ingredient of recipe?.ingredients" [selectable]="false" [selected]="false"> {{ingredient.name}} ({{ingredient.amount}})
+                </mat-chip>
             </mat-chip-list>
         </div>
         <!-- TODO: check why is not working -->

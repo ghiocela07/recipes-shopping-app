@@ -1,13 +1,9 @@
 <nav class="navbar navbar-toggleable-xs"></nav>
 <mat-toolbar class="app-toolbar" color="accent">
-<<<<<<< HEAD
-    <div class="nav-menu-button" fxShow=" true " fxHide.gt-sm="true">
-=======
-    <div class=“nav-menu-button” fxShow="true" fxHide.gt-sm="true" *ngIf="isAuthenticated">
->>>>>>> 3f73931fe8c9276af329282203c43aad68a9bf29
+    <div class="nav-menu-button" fxShow="true" fxHide.gt-sm="true" *ngIf="isAuthenticated">
         <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
+                <mat-icon>menu</mat-icon>
+            </button>
     </div>
     <span class="toolbar-title-app">Recipes Book</span>
     <div fxShow="true" fxHide.lt-md="true">
@@ -27,35 +23,36 @@
     <div fxFlex fxLayoutAlign="flex-end center">
         <div *ngIf="isAuthenticated">
             <button mat-button [matMenuTriggerFor]="manageMenu">
-                <mat-icon>settings</mat-icon>
-                <span fxShow="true" fxHide.lt-md="true">
-                    Manage
-                    <mat-icon>arrow_drop_down</mat-icon>
-                </span>
-            </button>
+                    <mat-icon>settings</mat-icon>
+                    <span fxShow="true" fxHide.lt-md="true">
+                        Manage
+                        <mat-icon class="manage-arrow">arrow_drop_down</mat-icon>
+                    </span>
+                </button>
             <mat-menu #manageMenu="matMenu">
                 <button mat-menu-item (click)="onSaveData()">
-                    <mat-icon>save_alt</mat-icon>
-                    Save
-                </button>
+                        <mat-icon>save_alt</mat-icon>
+                        Save
+                    </button>
                 <button mat-menu-item (click)="onFetchData()">
-                    <mat-icon>cloud_download</mat-icon>
-                    Fetch Data
-                </button>
+                        <mat-icon>cloud_download</mat-icon>
+                        Fetch Data
+                    </button>
             </mat-menu>
         </div>
         <button mat-button (click)="onNavigateToAuth()" *ngIf="!isAuthenticated">
-            <mat-icon>person</mat-icon>
-            Authenticate
-        </button>
+                <mat-icon>person</mat-icon>
+                Authenticate
+            </button>
         <button mat-button (click)="onLogout()" *ngIf="isAuthenticated">
-            <mat-icon>logout</mat-icon>
-            Logout
-        </button>
+                <mat-icon>logout</mat-icon>
+                <span fxShow="true" fxHide.lt-md="true"> Logout</span>
+               
+            </button>
     </div>
 
 </mat-toolbar>
-<mat-sidenav-container fxFlexFill *ngIf="isAuthenticated">
+<mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav fxLayout="column" fxHide.gt-sm="true">
         <div fxLayout="column">
             <a mat-list-item class="sidenav-link-item" routerLink="/recipes" routerLinkActive="sidenav-active-link-item" (click)="sidenav.toggle()">

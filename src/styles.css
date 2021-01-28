@@ -1,17 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    min-width: 450px;
+}
 
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-
 .success-snack-bar {
     background-color: #81c784;
     color: #ffebee;
 }
+
 .mat-card-header-text {
     margin: 0 auto! important;
 }
-.app-divider{
+
+.app-divider {
     margin: 20px 0 !important;
 }

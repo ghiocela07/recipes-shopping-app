@@ -2,30 +2,36 @@
     display: grid;
     padding: 10%;
 }
+
 .auth-card {
     margin: 10% auto;
-    width: 30%;
     background: #fce4ec;
     color: #ff4081;
 }
+
 .main-button {
     margin-bottom: 20px;
 }
+
 .secondary-button {
     color: #ff4081;
     margin-top: 20px;
 }
+
 .auth-card-title {
     font-family: fantasy;
     font-size: xx-large;
 }
+
 .auth-icon-form {
     vertical-align: middle;
 }
+
 .auth-icon {
     margin-right: 5px;
     margin-bottom: 4px;
 }
+
 .auth-card-header {
     background: #ff4081;
     margin: -16px -16px 10px -16px !important;
@@ -35,7 +41,8 @@
     border-top-right-radius: 5px;
     color: #ffebee;
 }
-.error{
+
+.error {
     background-color: #ef231429;
     padding: 10px;
     border-radius: 5px;

@@ -1,5 +1,5 @@
-<div fxLayout="row">
-    <mat-card class="mat-elevation-z4 auth-card">
+<div fxLayout="row" fxFlex>
+    <mat-card class="mat-elevation-z4 auth-card" fxFlex.gt-sm="70%" fxFlex.gt-sm="40%">
         <mat-card-header class="auth-card-header">
             <mat-card-title class="auth-card-title">Login</mat-card-title>
         </mat-card-header>
@@ -10,7 +10,7 @@
             <div *ngIf="isLoading">
                 <app-loading-spinner></app-loading-spinner>
             </div>
-            <form *ngIf="!isLoading" class="auth-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+            <form *ngIf="!isLoading" class="auth-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" fxFlex>
                 <mat-form-field color="accent">
                     <mat-label>
                         <mat-icon class="auth-icon-form">email</mat-icon>Email

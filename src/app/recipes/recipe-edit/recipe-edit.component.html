@@ -1,4 +1,4 @@
-<mat-card class="mat-elevation-z4 recipe-card">
+<mat-card class="mat-elevation-z4 recipe-card" flexLayout="column" fxFlex>
     <form *ngIf="form" class="recipe-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field color="accent" class="recipe-form-field">
             <mat-label>Recipe Title</mat-label>
@@ -9,10 +9,12 @@
             <mat-label>Image URL</mat-label>
             <input matInput type="url" formControlName="imagePath" #imagePath />
             <mat-error *ngIf="hasError('imagePath','required')">Image URL is required</mat-error>
+
         </mat-form-field>
         <div>
-            <img class="recipe-edit-image" mat-card-image alt="" [src]="imagePath.value">
+            <img fxFlex="100" fxFlex.gt-xs="50" class="recipe-edit-image" mat-card-image alt="" [src]="imagePath.value">
         </div>
+
         <mat-form-field color="accent" class="recipe-form-field">
             <mat-label>Description</mat-label>
             <textarea matInput rows="8" type="text" formControlName="description"></textarea>
@@ -36,10 +38,7 @@
                         <span *ngIf="hasArrayGroupItemError('amount',i,'pattern')">Amount should be greater than 0</span>
                     </mat-error>
                 </mat-form-field>
-                <button mat-mini-fab type="button" color="accent" class="clear-fab-button" #tooltip="matTooltip"
-                    matTooltip="Delete ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000"
-                        
-                    (click)="onDeleteIngredient(i)">
+                <button mat-mini-fab type="button" color="accent" class="clear-fab-button" #tooltip="matTooltip" matTooltip="Delete ingredient" [matTooltipPosition]="'below'" matTooltipHideDelay="2000" (click)="onDeleteIngredient(i)">
                     <mat-icon>clear</mat-icon>
                 </button>
             </div>

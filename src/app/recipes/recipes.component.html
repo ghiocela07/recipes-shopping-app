@@ -1,17 +1,20 @@
-<div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around top">
+<div fxLayout="row" fxFlex="100" xLayoutAlign="space-around top">
 
-    <div fxFlex="20" class="recipe-column">
+    <div fxFlex fxLayout="column" class="recipe-column">
+
         <h1 class="mat-title column-title">Recipe List</h1>
 
         <mat-divider></mat-divider>
-            <app-recipe-list>
+        <app-recipe-list>
         </app-recipe-list>
     </div>
 
 
-    <div fxFlex="60" class="recipe-column">
-        <h1 class="mat-title column-title">Recipe Detail</h1><mat-divider></mat-divider>
-       <router-outlet></router-outlet>
+    <div fxFlex="80" fxLayout="column" class="recipe-column">
+
+        <h1 class="mat-title column-title">Recipe Detail</h1>
+        <mat-divider></mat-divider>
+        <router-outlet></router-outlet>
     </div>
 
 </div>
